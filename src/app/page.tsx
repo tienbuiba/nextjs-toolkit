@@ -6,7 +6,7 @@ export default function Home() {
   return (
     <div style={{ display: "flex", flexDirection: 'column', gap: '30px' }}>
       <TodoList />
-      {/* <LogIn /> */}
+      <LogIn />
     </div>
   );
 }

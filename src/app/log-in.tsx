@@ -2,23 +2,28 @@
 "use client"
 import { logIn, logOut, toggleModerator } from "@/redux/features/auth-slice"
 import { AppDispatch, RootState } from "@/redux/store"
+import { useRouter } from "next/navigation"
 import { useState } from "react"
 import { useDispatch, useSelector } from 'react-redux'
 
 const LogIn = () => {
 
   const dispatch = useDispatch<AppDispatch>()
-  const [username, setUsername] = useState("")
+  const [username, setUsername] = useState("");
+  const { push } = useRouter()
 
   const data = useSelector((state: RootState) => state.authReducer.value);
 
   const onClickLogin = () => {
     dispatch(logIn(username))
     setUsername('')
+
+    push(`/post/123`)
   }
 
   const onClickLogOut = () => {
     dispatch(logOut())
+
   }
 
   const onToggleModerator = () => {
